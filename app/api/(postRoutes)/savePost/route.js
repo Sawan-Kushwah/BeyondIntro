@@ -6,13 +6,14 @@ export async function POST(req) {
     try {
         await connectToDB();
 
-        const data = await req.json();
+        const data = await req.json(); // fronted se data
 
         if (!data) {
             return NextResponse.json({ message: "Post data not found" });
         }
 
         const post = new Post(data);
+
         await post.save() // mongoddb method
 
         return NextResponse.json({ message: "Post saved successfully" });

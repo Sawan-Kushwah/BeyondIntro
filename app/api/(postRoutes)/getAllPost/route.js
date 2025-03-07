@@ -4,6 +4,7 @@ import Post from "../../models/Post";
 
 export async function GET(req) {
     try {
+        console.log("mongodb uri ", process.env.MONGODB_URI)
         await connectToDB();
 
         const searchParams = req.nextUrl.searchParams;
